@@ -1,0 +1,174 @@
+body {
+	color: #333333;
+	font-family: sans-serif;
+	font-size: 95%;
+	line-height: 133%;
+}
+
+pre {
+	margin-right: 1em;
+	margin-left: 1em;
+	padding: .66em 1.33em;
+	background: #f0f0f0;
+	line-height: 110%;
+	font-size: 95%;
+}
+
+
+
+h1 {
+	margin-top: .33em;
+	margin-bottom: 1.66em;
+	font-size: 220%;
+}
+
+h2 {
+	margin-bottom: 1.66em;
+	font-size: 180%;
+}
+
+h3 {
+	margin-top: 1.66em;
+	border-bottom: 2px solid #666666;
+	font-size: 150%;
+}
+
+h4 {
+	border-bottom: 1px dotted #666666;
+	font-size: 133%;
+}
+
+h5 {
+	margin-bottom: 1em;
+	padding-left: 6px;
+	border-left: 4px solid #aaaaaa;
+	font-size: 110%;
+}
+
+h6 {
+	margin-bottom: .66em;
+	font-size: 100%;
+}
+
+
+
+a:link, a:visited, a.ref {
+	font-weight: bolder;
+}
+a:visited {
+	color: #666666;
+}
+a:hover {
+	color: #ff0000;
+}
+
+a:visited img {
+	border-color: #666666;
+}
+
+
+p {
+	margin-top: .5em;
+	margin-bottom: .66em;
+}
+
+
+
+dl {
+}
+dl dt {
+	margin-bottom: .16em;
+}
+dl dd {
+	margin-bottom: .66em;
+}
+
+
+dl#top-content {
+}
+dl#top-content dt {
+	margin-bottom: .66em;
+	padding-left: 6px;
+	border-left: 4px solid #aaaaaa;
+	font-size: 110%;
+}
+dl#top-content dd {
+}
+
+
+dl.permission {
+}
+dl.permission dt {
+/*	font-family: monospace;*/
+	font-weight: bolder;
+}
+
+
+dl.files {
+}
+dl.files dt {
+/*	font-family: monospace;*/
+	font-weight: bolder;
+}
+dl.files dd {
+}
+
+
+dl.symlinks {
+}
+dl.symlinks dt {
+	font-weight: bolder;
+}
+dl.symlinks dd {
+	font-weight: bolder;
+}
+
+
+
+
+table.dbtable {
+	width: 100%;
+	font-size: 90%;
+}
+table.dbtable thead {
+	background: #f0f0f0;
+}
+table.dbtable tbody {
+}
+table.dbtable th,
+table.dbtable td {
+	padding: 2px;
+}
+table.dbtable tbody td {
+	border-bottom: 1px solid #cccccc;
+}
+
+
+table.formparams {
+	width: 66%;
+	font-size: 90%;
+}
+table.formparams thead {
+	background: #f0f0f0;
+}
+table.formparams tbody {
+}
+table.formparams th,
+table.formparams td {
+	padding: 2px;
+}
+table.formparams tbody th {
+	border-bottom: 1px solid #cccccc;
+	text-align: left;
+}
+table.formparams tbody td {
+	border-bottom: 1px solid #cccccc;
+}
+
+
+
+
+.note {
+	color: #cc0000;
+	font-weight: bolder;
+}

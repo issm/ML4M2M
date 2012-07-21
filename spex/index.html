@@ -1,0 +1,436 @@
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<title>ML4M2M - Markup Language for Mario2(-like) Maps</title>
+
+	<link rel="stylesheet" type="text/css" href="./style.css" charset="utf-8" />
+	<script type="text/javascript" src="../js/jquery-1.3.2.min.js"></script>
+	<script type="text/javascript" src="../js/ml4m2m.js" charset="utf-8"></script>
+	<script type="text/javascript">
+$( function() { $( 'pre' ).each( function() {
+  this.innerHTML = this.innerHTML.replace( /\</g, '&lt;').replace( /\>/g, '&gt;' ).replace( /\&lt;\s/g, '&lt;' ); } );
+} );
+	</script>
+</head>
+<body>
+
+
+<div id="head">
+	<div class="ml4m2m">
+		<mario2map like="3-1" s="52x13">
+			<blockade>
+				<ground s="52x2"></ground>
+
+				<!-- M -->
+				<renga p="8,5" s="x8"></renga>
+				<renga p=",+6"></renga>
+				<renga p=",-1"></renga>
+				<renga p=",-3" s="x3"></renga>
+				<renga p=",+3"></renga>
+				<renga p=",+1"></renga>
+				<renga p=",-6" s="x8"></renga>
+				<!-- L -->
+				<renga p="+1" s="x8"></renga>
+				<renga s="4"></renga>
+				<!-- 4 -->
+				<renga p=",+2" s="7"></renga>
+				<renga p="-7,+1"></renga>
+				<renga p=",+1"></renga>
+				<renga p=",+1"></renga>
+				<renga p=",+1"></renga>
+				<renga p=",-6" s="x8"></renga>
+				<!-- M -->
+				<renga p="+3" s="x8"></renga>
+				<renga p=",+6"></renga>
+				<renga p=",-1"></renga>
+				<renga p=",-3" s="x3"></renga>
+				<renga p=",+3"></renga>
+				<renga p=",+1"></renga>
+				<renga p=",-6" s="x8"></renga>
+				<!-- 2 -->
+				<renga p="+1,+5" s="x2"></renga>
+				<renga p=",+2" s="4"></renga>
+				<renga p=",-2" s="x2"></renga>
+				<renga p="-2,-1"></renga>
+				<renga p="-3,-1" s="2"></renga>
+				<renga p="-3,-1"></renga>
+				<renga p="-2,-1"></renga>
+				<renga p="-1,-1" s="6"></renga>
+				<!-- M -->
+				<renga p="+1" s="x8"></renga>
+				<renga p=",+6"></renga>
+				<renga p=",-1"></renga>
+				<renga p=",-3" s="x3"></renga>
+				<renga p=",+3"></renga>
+				<renga p=",+1"></renga>
+				<renga p=",-6" s="x8"></renga>
+			</blockade>
+
+			<background>
+				<castle p=",3"></castle>
+
+				<cloud type="3" p="2,10"></cloud>
+				<cloud type="1" p="+10,7"></cloud>
+				<cloud type="2" p="+8,10"></cloud>
+				<cloud type="1" p="+10,7"></cloud>
+
+				<mount type="1" p="8,3"></mount>
+				<mount type="1" p="+20"></mount>
+				<mount type="2" p="+8"></mount>
+
+				<tree type="1" p="16" s="2"></tree>
+				<tree type="2" s="1"></tree>
+				<tree type="3" s="1"></tree>
+				<tree type="1" s="3"></tree>
+				<tree type="3" s="1"></tree>
+				<tree type="1" s="1"></tree>
+				<tree type="1" p="+9" s="1"></tree>
+				<tree type="2" s="1"></tree>
+				<tree type="1" s="2"></tree>
+			</background>
+		</mario2map>
+	</div>
+
+	<h1>ML4M2M - Markup Language for Mario2(-like) Maps</h1>
+</div>
+
+
+<div id="content">
+
+	<h3>目次</h3>
+
+	<ul>
+		<li>
+			<a href="#section-概要">概要</a>
+		</li>
+		<li>
+			<a href="#section-準備">準備</a>
+		</li>
+		<li>
+			<a href="#section-基本">基本</a>
+		</li>
+		<li>
+			<a href="#section-要素一覧">要素一覧</a>
+			<ul>
+				<li><a href="#section-要素一覧-背景カテゴリ">背景カテゴリ</a></li>
+				<li><a href="#section-要素一覧-障害物カテゴリ">障害物カテゴリ</a></li>
+				<li><a href="#section-要素一覧-リフトカテゴリ">リフトカテゴリ</a></li>
+				<li><a href="#section-要素一覧-アイテムカテゴリ">アイテムカテゴリ</a></li>
+			</ul>
+		</li>
+	</ul>
+
+
+
+
+
+	<h3><a id="section-概要">概要</a></h3>
+
+	<p>HTMLのようなタグ形式の記述で「スーパーマリオブラザーズ 2」っぽいエリアマップを描画するためのマークアップ言語のようなものです．</p>
+
+
+	
+	
+	<h3><a id="section-準備">準備</a></h3>
+	
+<pre>
+	<script type="text/javascript" src="jquery-1.3.2.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="ml4m2m.js" charset="utf-8"></script>
+</pre>
+
+
+
+	<h3><a id="section-基本">基本</a></h3>
+
+	<h4>全体の書式</h4>
+
+	<p><code>ml4m2m</code> なクラスの <code>div</code> 要素の中に，次のような書式で記述していきます．</p>
+
+<pre>
+< div class="ml4m2m">
+  <mario2map like="1-1" size="80x14">
+
+    <!-- 背景カテゴリ -->
+    <background>
+      <!--
+      「背景要素」を記述する
+      -->
+    </background>
+
+    <!-- 障害物カテゴリ -->
+    <blockade>
+      <!--
+      「障害物要素」を記述する
+      -->
+    </blockade>
+
+    <!-- リフトカテゴリ -->
+    <lift>
+      <!--
+      「リフト要素」を記述する
+       障害物カテゴリでいいんじゃね？というのはとりあえずスルー
+      -->
+    </lift>
+
+    <!-- アイテムカテゴリ -->
+    <item>
+      <!--
+      「アイテム要素」を記述する
+      -->
+    </item>
+
+  </mario2map>
+< /div>
+</pre>
+
+<h5><code>mario2map</code> タグの属性</h5>
+<p><code>mario2map</code> タグには，次の属性を設定することができます．</p>
+<dl>
+	<dt><code>like</code></dt>
+	<dd>スーパーマリオブラザーズ2 に存在する「エリア」を指定することで，そのエリア「風の」マップを描画することができます．指定がなかった場合，「1-1」 がデフォルトの値となります．</dd>
+	<dt><code>size</code></dt>
+	<dd>マップのサイズを「幅x高さ」で指定します．16pixel x 12pixel のブロック 1つが単位となります．指定がなかった場合，「100x14」がデフォルトの値となります．</dd>
+</dl>
+
+
+	<h4>単一要素の書式</h4>
+	
+	<p>特定の「カテゴリ」下で特定の「要素」を記述することで，マップの描画が行われます．「要素」の基本的な記述の例を次に示します．</p>
+
+<pre>
+  <elemname pos="20,10" size="10x5"></elemname>
+</pre>
+
+<p><code>pos</code> と <code>size</code> はすべての「要素」に共通の属性で，それぞれ<b>位置</b>と<b>サイズ</b>を表します．この例では，<b>マップ左下から右に20ブロック，上に10ブロック</b> のところに，<b>幅10ブロック分，高さ5ブロック分</b>の <b><code>elemname</code> という要素を描画する</b>，ということを表しています．なお，要素の左下部分が指定位置となるように描画されます．</p>
+
+
+
+
+
+
+
+
+
+<h3><a id="section-要素一覧">要素一覧</a></h3>
+
+
+
+
+
+<h4><a id="section-要素一覧-背景カテゴリ">背景カテゴリ</a></h4>
+
+<div class="ml4m2m">
+	<mario2map like="2-1" s="80,13">
+		<background>
+			<cloud type="1" p="2,2" title="雲1"></cloud>
+			<cloud type="2" title="雲2"></cloud>
+			<cloud type="3" title="雲3"></cloud>
+			<grass type="1" title="草1"></grass>
+			<grass type="2" title="草2"></grass>
+			<grass type="3" title="草3"></grass>
+			<mount type="1" title="山1"></mount>
+			<mount type="2" title="山2"></mount>
+			<tree type="1" title="木1"></tree>
+			<tree type="2" title="木2"></tree>
+			<tree type="3" title="木3"></tree>
+			<water p="+1" s="3,3" title="水"></water>
+			<castle type="1" p="+1" title="城1"></castle>
+			<castle type="2" p="+1" title="城2"></castle>
+			<wall p="+1" s="3" title="城壁"></wall>
+		</background>
+	</mario2map>
+</div>
+
+<pre>
+< div class="ml4m2m">
+  <mario2map like="2-1" s="80,13">
+    <background>
+      <cloud type="1" p="2,2" title="雲1"></cloud>
+      <cloud type="2" title="雲2"></cloud>
+      <cloud type="3" title="雲3"></cloud>
+      <grass type="1" title="草1"></grass>
+      <grass type="2" title="草2"></grass>
+      <grass type="3" title="草3"></grass>
+      <mount type="1" title="山1"></mount>
+      <mount type="2" title="山2"></mount>
+      <tree type="1" title="木1"></tree>
+      <tree type="2" title="木2"></tree>
+      <tree type="3" title="木3"></tree>
+      <water p="+1" s="3,3" title="水"></water>
+      <castle type="1" p="+1" title="城1"></castle>
+      <castle type="2" p="+1" title="城2"></castle>
+      <wall p="+1" s="3" title="城壁"></wall>
+    </background>
+  </mario2map>
+< /div>
+</pre>
+
+
+
+<h4><a id="section-要素一覧-障害物カテゴリ">障害物カテゴリ</a></h4>
+
+<div class="ml4m2m">
+	<mario2map like="3-1" s="80,12">
+		<blockade>
+			<block p="2,2" s="2,2" title="ブロック"></block>
+			<brick p="+1" s="2,2" title="レンガブロック"></brick>
+			<bridge p="+1" s="2" title="橋"></bridge>
+			<cloud p="+1" s="2,2" title="雲"></cloud>
+			<ground p="+1" s="2,2" title="地面"></ground>
+			<hatena p="+1" s="2,2" title="ハテナブロック"></hatena>
+			<hidden p="+1" s="2,2" title="隠しブロック"></hidden>
+			<iron p="+1" s="2,2" title="鉄ブロック"></iron>
+			<jump type="1" p="+1" title="ジャンプ台"></jump>
+			<jump type="2" p="+1" title="スーパージャンプ台"></jump>
+			<killer type="1" p="+1" s=",1" title="キラー砲台"></killer>
+			<killer type="2" p="+0" s=",2" title="キラー砲台"></killer>
+			<killer type="2" p="+0" s=",4" title="キラー砲台"></killer>
+			<pipe type="n" p="+1" s=",3" title="土管"></pipe>
+			<pipe type="r" p="+1" s=",3" title="土管"></pipe>
+			<pole p="+1" title="ポール"></pole>
+			<shima p="+1" s="5,3" title="島"></shima>
+		</blockade>
+	</mario2map>
+</div>
+<div class="ml4m2m">
+	<mario2map like="3-2" s="4,4">
+		<blockade>
+			<coral p="2,2" s="2,2" title="さんごブロック"></coral>
+		</blockade>
+	</mario2map>
+</div>
+
+<pre>
+< div class="ml4m2m">
+  <mario2map like="3-1" s="80,12">
+    <blockade>
+      <block p="2,2" s="2,2" title="ブロック"></block>
+      <brick p="+1" s="2,2" title="レンガブロック"></brick>
+      <bridge p="+1" s="2" title="橋"></bridge>
+      <cloud p="+1" s="2,2" title="雲"></cloud>
+      <ground p="+1" s="2,2" title="地面"></ground>
+      <hatena p="+1" s="2,2" title="ハテナブロック"></hatena>
+      <hidden p="+1" s="2,2" title="隠しブロック"></hidden>
+      <iron p="+1" s="2,2" title="鉄ブロック"></iron>
+      <jump type="1" p="+1" title="ジャンプ台"></jump>
+      <jump type="2" p="+1" title="スーパージャンプ台"></jump>
+      <killer type="1" p="+1" s=",1" title="キラー砲台"></killer>
+      <killer type="2" p="+0" s=",2" title="キラー砲台"></killer>
+      <killer type="2" p="+0" s=",4" title="キラー砲台"></killer>
+      <pipe type="n" p="+1" s=",3" title="土管"></pipe>
+      <pipe type="r" p="+1" s=",3" title="逆さ土管"></pipe>
+      <pole p="+1" title="ポール"></pole>
+      <shima p="+1" s="5,3" title="島？"></shima>
+    </blockade>
+  </mario2map>
+< /div>
+< div class="ml4m2m">
+  <mario2map like="3-2" s="4,4">
+    <blockade>
+      <coral p="2,2" s="2,2" title="さんごブロック"></coral>
+    </blockade>
+  </mario2map>
+< /div>
+</pre>
+
+
+
+<h4><a id="section-要素一覧-リフトカテゴリ">リフトカテゴリ</a></h4>
+
+<div class="ml4m2m">
+	<mario2map like="a-3" s="80,9">
+		<lift>
+			<kinoko type="1" p="2,4" title="リフト1"></kinoko>
+			<kinoko type="2" p="+1" title="リフト2"></kinoko>
+			<kinoko type="3" p="+1" title="リフト3"></kinoko>
+			<cloud type="1" p="+1" title="雲リフト1"></cloud>
+			<cloud type="2" p="+1" title="雲リフト2"></cloud>
+			<balance type="1" p="+1" s="8,4" r="-2" title="天秤リフト1"></balance>
+			<balance type="2" p="+1" s="7,5" r="+1" title="天秤リフト2"></balance>
+			<balance type="3" p="+1" s="6,5" r="+2" title="天秤リフト3"></balance>
+			<elevator type="1" p="+1" from="2" int="3" title="エレベータ1"></elevator>
+			<elevator type="2" p="+1" from="3" int="3" title="エレベータ2"></elevator>
+			<elevator type="3" p="+1" from="4" int="3" title="エレベータ3"></elevator>
+		</lift>
+	</mario2map>
+</div>
+
+<pre>
+< div class="ml4m2m">
+  <mario2map like="a-3" s="80,9">
+    <lift>
+      <kinoko type="1" p="2,4" title="リフト1"></kinoko>
+      <kinoko type="2" p="+1" title="リフト2"></kinoko>
+      <kinoko type="3" p="+1" title="リフト3"></kinoko>
+      <cloud type="1" p="+1" title="雲リフト1"></cloud>
+      <cloud type="2" p="+1" title="雲リフト2"></cloud>
+      <balance type="1" p="+1" s="8,4" r="-2" title="天秤リフト1"></balance>
+      <balance type="2" p="+1" s="7,5" r="+1" title="天秤リフト2"></balance>
+      <balance type="3" p="+1" s="6,5" r="+2" title="天秤リフト3"></balance>
+      <elevator type="1" p="+1" from="2" int="3" title="エレベータ1"></elevator>
+      <elevator type="2" p="+1" from="3" int="3" title="エレベータ2"></elevator>
+      <elevator type="3" p="+1" from="4" int="3" title="エレベータ3"></elevator>
+    </lift>
+  </mario2map>
+< /div>
+</pre>
+
+
+<h4><a id="section-要素一覧-アイテムカテゴリ">アイテムカテゴリ</a></h4>
+
+<div class="ml4m2m">
+	<mario2map like="1-1" s="20,6">
+		<item>
+			<coin p="2,3" s="3" title="コイン"></coin>
+			<kinoko type="s" p="+1" title="スーパーキノコ"></kinoko>
+			<kinoko type="u" p="+1" title="1UPキノコ"></kinoko>
+			<kinoko type="d" p="+1" title="毒キノコ"></kinoko>
+			<flower p="+1" title="ファイアフラワー"></flower>
+			<star p="+1" title="スーパースター"></star>
+			<jack p="+1,-1" s=",4" title="ツタ？"></jack>
+		</item>
+	</mario2map>
+</div>
+<div class="ml4m2m">
+	<mario2map like="1-4" s="5,5">
+		<item>
+			<axe p="3,3" title="斧"></axe>
+		</item>
+	</mario2map>
+</div>
+
+<pre>
+< div class="ml4m2m">
+  <mario2map like="1-1" s="20,6">
+    <item>
+      <coin p="2,3" s="3" title="コイン"></coin>
+      <kinoko type="s" p="+1" title="スーパーキノコ"></kinoko>
+      <kinoko type="u" p="+1" title="1UPキノコ"></kinoko>
+      <kinoko type="d" p="+1" title="毒キノコ"></kinoko>
+      <flower p="+1" title="ファイアフラワー"></flower>
+      <star p="+1" title="スーパースター"></star>
+      <jack p="+1,-1" s=",4" title="ツタ？"></jack>
+    </item>
+  </mario2map>
+< /div>
+< div class="ml4m2m">
+  <mario2map like="1-4" s="5,5">
+    <item>
+      <axe p="3,3" title="斧"></axe>
+    </item>
+  </mario2map>
+< /div>
+</pre>
+
+
+
+
+</div>
+
+
+<div id="foot">
+</div>
+
+
+</body>
+</html>
